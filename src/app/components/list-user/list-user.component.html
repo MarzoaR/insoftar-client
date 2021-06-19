@@ -1,0 +1,43 @@
+
+<div class="contanier mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <h3 class="card-title">User List</h3>
+          <button [routerLink]="['/addUser']"
+                  class="btn btn-success float-end">
+            New User
+          </button>
+          <table class="table table-hover text-start table-light table-striped mt-4">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of listUsers">
+                <td>{{ user.name }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.dni }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                  <i  [routerLink]="['/editUser', user._id]"
+                      class="bi bi-pencil-square me-3 text-primary"></i>
+                  <i  (click)="deleteUSer(user._id)"
+                      class="bi bi-trash text-danger"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
