@@ -7,11 +7,11 @@ import { UsersService } from 'src/app/services/users.service';
 import { MyValidations } from '../../utils/my-validations.validations';
 
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css']
+  selector: 'app-form-user',
+  templateUrl: './form-user.component.html',
+  styleUrls: ['./form-user.component.css']
 })
-export class AddUserComponent implements OnInit {
+export class FormUserComponent implements OnInit {
 
   isEdit: boolean = false;
 

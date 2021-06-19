@@ -8,7 +8,12 @@ import { User } from '../models/user.model';
 })
 export class UsersService {
 
-  url = 'http://localhost:4000/api/users/';
+  // url para pruebas en local
+  // url = 'http://localhost:5000/api/users/';
+
+  // url para pruebas desde heroku
+  url = 'https://server-api-insoftar.herokuapp.com/api/users/'
+
 
   constructor( private http: HttpClient) { }
 

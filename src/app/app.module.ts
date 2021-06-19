@@ -6,13 +6,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AddUserComponent } from './components/add-user/add-user.component';
+import { FormUserComponent } from './components/form-user/form-user.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddUserComponent,
+    FormUserComponent,
     ListUserComponent
   ],
   imports: [
