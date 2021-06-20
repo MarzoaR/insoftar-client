@@ -35,16 +35,6 @@ export class FormUserComponent implements OnInit {
       phone: ['', [Validators.required, Validators.pattern(/^[0-9]{7,}$/)]],
       email: ['', [Validators.required, Validators.email], MyValidations.existsEmail(this.userService)]
     })
-
-    if( this.id !== null ){
-      this.userForm = this.fb.group({
-        name: ['', [Validators.required, Validators.pattern(/^([Aa-zA-ZáéíóúÁÉÍÓÚÑñ]{2,}\s?)$/)]],
-        lastname: ['', [Validators.required, Validators.pattern(/^([Aa-zA-ZáéíóúÁÉÍÓÚÑñ]{2,}\s?)$/)]],
-        dni: ['', [Validators.required, Validators.pattern(/^[0-9]{7,9}$/)]],
-        phone: ['', [Validators.required, Validators.pattern(/^[0-9]{7,}$/)]],
-        email: ['', [Validators.required, Validators.email]]
-      })
-    }
   }
 
   ngOnInit(): void {
@@ -57,12 +47,12 @@ export class FormUserComponent implements OnInit {
       this.title = 'Edit User';
       this.userService.getUser( this.id )
           .subscribe( resp => {
-            this.userForm.setValue( {
-              name: resp.name,
-              lastname: resp.lastname,
-              dni: resp.dni,
-              phone: resp.phone,
-              email: resp.email
+            this.userForm = this.fb.group({
+              name: [resp.name, [Validators.required, Validators.pattern(/^([Aa-zA-ZáéíóúÁÉÍÓÚÑñ]{2,}\s?)$/)]],
+              lastname: [resp.lastname, [Validators.required, Validators.pattern(/^([Aa-zA-ZáéíóúÁÉÍÓÚÑñ]{2,}\s?)$/)]],
+              dni: [resp.dni, [Validators.required, Validators.pattern(/^[0-9]{7,9}$/)], MyValidations.existsDni(this.userService, resp.dni)],
+              phone: [resp.phone, [Validators.required, Validators.pattern(/^[0-9]{7,}$/)]],
+              email: [resp.email, [Validators.required, Validators.email], MyValidations.existsEmail(this.userService, resp.email)]
             })
           })
     }
