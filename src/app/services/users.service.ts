@@ -9,10 +9,10 @@ import { User } from '../models/user.model';
 export class UsersService {
 
   // url para pruebas en local
-  // url = 'http://localhost:5000/api/users/';
+  url = 'http://localhost:5000/api/users/';
 
   // url para pruebas desde heroku
-  url = 'https://server-api-insoftar.herokuapp.com/api/users/'
+  // url = 'https://server-api-insoftar.herokuapp.com/api/users/'
 
 
   constructor( private http: HttpClient) { }
