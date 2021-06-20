@@ -1,4 +1,10 @@
-# Client
+# insoftar-client
+Cliente para prueba técnica
+
+## Url del cliente en netlify
+https://stupefied-nobel-739648.netlify.app/
+
+## Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
 
